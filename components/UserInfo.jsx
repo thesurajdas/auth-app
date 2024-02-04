@@ -1,15 +1,19 @@
+"use client";
+
+import { signOut, useSession } from "next-auth/react";
 
 export default function UserInfo() {
+  const {data: session}= useSession();
   return (
     <div className="grid place-items-center h-screen">
-      <div className="shadow-lg p-8 bg-zinc-300/10 flex flex-col gap-2 my-6">
+      <div className="bg-white shadow-lg p-8 flex flex-col gap-2 my-6 rounded-lg">
         <div>
-          Name: <span className="font-bold">Suraj Das</span>
+          Name: <span className="font-bold">{session?.user?.name}</span>
         </div>
         <div>
-          Email: <span className="font-bold">suraj4apps@gmail.com</span>
+          Email: <span className="font-bold">{session?.user?.email}</span>
         </div>
-        <button className="mt-3 py-3 px-6 bg-red-500 text-white font-bold rounded-lg">Logout</button>
+        <button onClick={()=>signOut()} className="mt-3 py-3 px-6 bg-red-500 text-white font-bold rounded-lg">Logout</button>
       </div>
     </div>
   )

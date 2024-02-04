@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-import { NextAuthProvider } from "./provider";
+import { AuthProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,14 +14,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextAuthProvider>
+        <AuthProvider>
           <div className="max-w-5xl mx-auto px-8">
             <NavBar />
-            <div className="pt-16">
+            <div className="flex flex-col items-center justify-center h-screen">
               {children}
             </div>
           </div>
-        </NextAuthProvider>
+        </AuthProvider>
       </body>
     </html >
   );

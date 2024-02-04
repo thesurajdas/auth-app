@@ -5,3 +5,6 @@
 input{
     @apply w-[400px] hover:border-green-500 border focus:outline-green-500 border-gray-200 px-6 py-2 bg-zinc-100/40 rounded-md
 }
+body{
+    @apply bg-gray-300
+}
