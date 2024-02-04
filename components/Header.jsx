@@ -2,6 +2,7 @@
 
 import LoginButton from "./LoginButton";
 import { useSession } from "next-auth/react";
+import LoginForm from "./LoginForm";
 
 export default function Header() {
   const {data: session, status} = useSession();
@@ -17,6 +18,7 @@ export default function Header() {
     <>
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
     <h1>Login to Get Started</h1>
+    <LoginForm/>
     <LoginButton/>
     </div>
     </>
